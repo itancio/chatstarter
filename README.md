@@ -14,6 +14,7 @@ pnpm add svix
 npx shadcn init
 npx shadcn add sidebar
 npx shadcn add avatar
+npx shadcn add dropdown-menu
 ```
 
 # Sources

@@ -1,3 +1,3 @@
-export default function FriendsPate() {
+export default function FriendsPage() {
     return "FRIENDS PAGE";
 }

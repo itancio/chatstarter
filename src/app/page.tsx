@@ -1,10 +1,8 @@
 'use client'
 
-import { useMutation, useQuery, Authenticated, Unauthenticated } from 'convex/react'; 
+import { useMutation, useQuery } from 'convex/react'; 
 import { useState } from "react";
 import { api } from "../../convex/_generated/api";
-import { SignInButton } from '@clerk/nextjs'
-
 
 export default function Home() {
   const messages = useQuery(api.functions.message.list)
@@ -19,7 +17,6 @@ export default function Home() {
 
   return (
     <>
-    <Authenticated>
     <div>
       {messages?.map( (message, index) => (
       <div key={index}>
@@ -38,11 +35,6 @@ export default function Home() {
       </form>
 
     </div>
-    </Authenticated>
-
-    <Unauthenticated>
-      <SignInButton />
-    </Unauthenticated>
     </>
   )
 }

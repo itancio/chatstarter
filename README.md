@@ -8,6 +8,11 @@ pnpm add @clerk/nextjs
 [Sync Clerk data to your application with webhooks](https://clerk.com/docs/integrations/webhooks/sync-data#install-svix)
 ```bash
 pnpm add svix
+
+# For UI
+```bash
+npx shadcn init
+npx shadcn add sidebar
 ```
 
 # Sources

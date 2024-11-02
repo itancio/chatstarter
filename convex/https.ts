@@ -24,10 +24,18 @@ http.route({
                 });
                 break;
             case 'user.updated':
-
+                await ctx.runMutation(internal.functions.user.upsert, { 
+                    username: body.data.username!,
+                    image: body.data.image_url,
+                    clerkId: body.data.id,
+                });
                 break;
             case 'user.deleted':
-
+                if (body.data.id) {
+                    await ctx.runMutation(internal.functions.user.remove, { 
+                        clerkId: body.data.id,
+                    });
+                }
                 break;
             default:
                 return new Response('Unrecognized event', { status: 400 });
@@ -48,9 +56,9 @@ const validateRequest = async (req: Request) => {
     try {
         const webhook = new Webhook(process.env.CLERK_WEBHOOK_SECRET!);
         return webhook.verify(text, {
-            id: svix_id!,
-            timestamp: svix_timestamp!,
-            signature: svix_signature!,
+            'svix_id': svix_id!,
+            'svix_timestamp': svix_timestamp!,
+            'svix_signature': svix_signature!,
         }) as unknown as WebhookEvent;
     } catch (error) {
         console.error('Webhook verification failed:', error);

@@ -13,6 +13,7 @@ pnpm add svix
 ```bash
 npx shadcn init
 npx shadcn add sidebar
+npx shadcn add avatar
 ```
 
 # Sources

@@ -9,10 +9,13 @@ import {
     SidebarMenuItem,
     SidebarProvider,
     SidebarMenuButton,
+    SidebarGroupLabel,
+    SidebarGroupAction,
+    SidebarFooter,
  } from '@/components/ui/sidebar';
 import { RedirectToSignIn } from "@clerk/nextjs";
 import { Authenticated, Unauthenticated } from 'convex/react'; 
-import { User2Icon } from 'lucide-react';
+import { PlusIcon, User2Icon } from 'lucide-react';
 import Link from 'next/link';
 export default function DashboardLayout({
     children,
@@ -46,14 +49,26 @@ function DashboardSidebar() {
                                 <SidebarMenuButton asChild>
                                     <Link href='/friends'>
                                         <User2Icon />
-                                        <a>Friends</a>
+                                        Friends
                                     </Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                         </SidebarMenu>
                     </SidebarGroupContent>
+                    <SidebarGroup>
+                        <SidebarGroupLabel> Direct Messages</SidebarGroupLabel>
+                        <SidebarGroupAction>
+                            <PlusIcon />
+                            <span className='sr-only'></span>
+                        </SidebarGroupAction>
+                    </SidebarGroup>
                 </SidebarGroup>
             </SidebarContent>
+            <SidebarFooter>
+                <SidebarGroup>
+                    
+                </SidebarGroup>
+            </SidebarFooter>
         </Sidebar>
         </>
     )

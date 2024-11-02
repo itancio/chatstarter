@@ -4,6 +4,12 @@ pnpm convex dev
 
 pnpm add @clerk/nextjs
 
+# package for sycning clerk data to your webhook
+[Sync Clerk data to your application with webhooks](https://clerk.com/docs/integrations/webhooks/sync-data#install-svix)
+```bash
+pnpm add svix
+```
+
 # Sources
 [Tour of Convex](https://docs.convex.dev/get-started)
 [Convex Functions](https://docs.convex.dev/functions)

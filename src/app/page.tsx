@@ -5,8 +5,12 @@ import { useState } from "react";
 import { api } from "../../convex/_generated/api";
 
 export default function Home() {
+  // Retrieve messages
   const messages = useQuery(api.functions.message.list)
+
+  // Create a new message
   const createMessage = useMutation(api.functions.message.create)
+  
   const [input, setInput] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

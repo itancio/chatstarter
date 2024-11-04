@@ -17,20 +17,21 @@ export const upsert = internalMutation({
         image: v.string(),
         clerkId: v.string(),
     },
-    handler: async (ctx, args) => {
-        const user = await getUserByClerkid(ctx, args.clerkId)
+    handler: async (ctx, { username, image, clerkId}) => {
+        // Fetch user by clerkId
+        const user = await getUserByClerkId(ctx, clerkId)
 
         // If user is found, update. Otherwise, create new user
         if (user) {
             await ctx.db.patch(user._id, {
-                username: args.username,
-                image: args.image,
+                username: username,
+                image: image,
             })
         } else {
             await ctx.db.insert('users', {
-                username: args.username,
-                image: args.image,
-                clerkId: args.clerkId,
+                username: username,
+                image: image,
+                clerkId: clerkId,
             });
         }
     },
@@ -38,8 +39,8 @@ export const upsert = internalMutation({
 
 export const remove = internalMutation({
     args: { clerkId: v.string() },
-    handler: async (ctx, args) => {
-        const user = await getUserByClerkid(ctx, args.clerkId)
+    handler: async (ctx, { clerkId }) => {
+        const user = await getUserByClerkId(ctx, clerkId)
 
         // If user is found, delete.
         if (user) {
@@ -53,10 +54,11 @@ const getCurrentUser = async (ctx: QueryCtx | MutationCtx) => {
     if (!identity) {
         return null;
     }
-    return await getUserByClerkid(ctx, identity.subject)
+    return await getUserByClerkId(ctx, identity.subject)
 }
 
-const getUserByClerkid = async (
+// Return a unique clerkID
+const getUserByClerkId = async (
     ctx: QueryCtx | MutationCtx, 
     clerkId: string
 ) => {

@@ -1,7 +1,7 @@
 const clerkConfig = {
   providers: [
     {
-      domain: "https://tops-worm-73.clerk.accounts.dev",
+      domain: process.env.CLERK_JWT_ISSUER_DOMAIN,
       applicationID: "convex",
     },
   ],

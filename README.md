@@ -34,6 +34,7 @@ Skills:
     npx shadcn init
     npx shadcn add sidebar
     npx shadcn add dialog
+    npx shadcn add label
 ```
 
 ## package for sycning clerk data to your webhook

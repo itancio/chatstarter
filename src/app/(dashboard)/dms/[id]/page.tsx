@@ -60,7 +60,7 @@ function TypingIndicator({
 }: {
   directMessage: Id<"directMessages">;
 }) {
-  const usernames = useQuery(api.functions.message.list, { directMessage });
+  const usernames = useQuery(api.functions.typing.list, { directMessage });
   if (!usernames || usernames.length === 0) {
     return null;
   }

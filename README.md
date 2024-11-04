@@ -30,11 +30,13 @@ Skills:
     pnpm convex dev
     pnpm add @clerk/nextjs
     pnpm add svix
+    pnpm add convex-helpers
 
     npx shadcn init
     npx shadcn add sidebar
     npx shadcn add dialog
     npx shadcn add label
+    npx shadcn add sonner
 ```
 
 ## package for sycning clerk data to your webhook

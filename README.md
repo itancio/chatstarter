@@ -32,23 +32,21 @@ Skills:
     pnpm add svix
     pnpm add convex-helpers
 
+    # For UI
     npx shadcn init
     npx shadcn add sidebar
     npx shadcn add dialog
     npx shadcn add label
     npx shadcn add sonner
+    npx shadcn add avatar
+    npx shadcn add dropdown-menu
+    npx shadcn add scroll-area
 ```
 
 ## package for sycning clerk data to your webhook
 [Sync Clerk data to your application with webhooks](https://clerk.com/docs/integrations/webhooks/sync-data#install-svix)
 ```bash
     pnpm add svix
-
-    # For UI
-    npx shadcn init
-    npx shadcn add sidebar
-    npx shadcn add avatar
-    npx shadcn add dropdown-menu
 ```
 
 

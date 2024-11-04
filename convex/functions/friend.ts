@@ -43,6 +43,9 @@ export const createFriendRequest = authenticatedMutation({
         const user = await ctx.db
             .query('users').withIndex('by_username', (q) => q.eq('username', username))
             .unique();
+
+        console.log('In friend.ts (createFriendRequest), user: ' + user?.username)
+
         if (!user) {
             throw new Error("User not found");
         } else if (user._id === ctx.user._id) {

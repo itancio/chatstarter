@@ -39,7 +39,7 @@ export function PendingFriendsList() {
 }
 
 export function AcceptedFriendsList() {
-    const friends = useQuery(api.functions.friend.listPending);
+    const friends = useQuery(api.functions.friend.listAccepted);
     const updateStatus = useMutation(api.functions.friend.updateStatus)
     return (
         <>

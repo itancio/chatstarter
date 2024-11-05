@@ -1,20 +1,3 @@
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarGroupLabel,
-  SidebarGroupAction,
-  SidebarFooter,
-} from "@/components/ui/sidebar";
-import { SignOutButton } from "@clerk/nextjs";
-import { useQuery } from "convex/react";
-import { User2Icon } from "lucide-react";
-import Link from "next/link";
-import { api } from "../../../../convex/_generated/api";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -22,8 +5,24 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NewDirectMessage } from "./new-direct-message";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { SignOutButton } from "@clerk/nextjs";
+import { useQuery } from "convex/react";
+import { User2Icon, XCircleIcon } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { api } from "../../../../convex/_generated/api";
+import { NewDirectMessage } from "./new-direct-message";
 
 function DashboardSidebar() {
   const user = useQuery(api.functions.user.get);
@@ -69,6 +68,7 @@ function DashboardSidebar() {
                           <p className="font-medium">
                             {directMessage.user.username}
                           </p>
+                          <XCircleIcon onClick={() => {}} />
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>

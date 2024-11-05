@@ -203,6 +203,9 @@ function MessageInput({
                 }
                 setAttachment(undefined);
                 setFile(undefined);
+                if (fileInputRef.current) {
+                  fileInputRef.current!.value = "";
+                }
               }}
             />
           )}
@@ -242,7 +245,7 @@ function ImagePreview({
   onDelete: () => void;
 }) {
   return (
-    <div className="relative size-40 overflow-hidden rounded border">
+    <div className="relative size-40 overflow-hidden rounded border group">
       <Image
         src={URL.createObjectURL(file)}
         alt="Attachment"
@@ -256,7 +259,7 @@ function ImagePreview({
       )}
       <Button
         type="button"
-        className="absolute top-2 right-2"
+        className="absolute top-2 right-2 group-hover:opacity-100 opacity-0 transition-opacity"
         variant="destructive"
         size="icon"
         onClick={onDelete}
